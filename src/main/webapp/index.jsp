@@ -27,8 +27,12 @@
         <p>Guess the next number in the sequences.</p>
         <p>
             <%
-                String[] question = ((Quiz)request.getSession().getAttribute("quiz")).questions;
-                out.println(request.getSession().getAttribute("qNumber"));
+                if(request.getSession().getAttribute("qNumber") != null){
+
+                    String[] question = ((Quiz)request.getSession().getAttribute("quiz")).questions;
+                    int questionNumber = (Integer)request.getSession().getAttribute("qNumber");
+                    out.println(question[questionNumber-1]);
+                }
             %>
         </p>
 

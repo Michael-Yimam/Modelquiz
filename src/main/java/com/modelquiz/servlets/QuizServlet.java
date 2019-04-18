@@ -53,7 +53,8 @@ public class QuizServlet extends HttpServlet {
             s.setAttribute("qNumber", qNumber);
 
             if(qNumber > 5){
-                response.sendRedirect("result.jsp");
+
+                getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
                 return;
             }
             response.sendRedirect("index.jsp");
